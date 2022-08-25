@@ -1,3 +1,9 @@
+
+/**
+ * 
+ * useful links 
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+ */
 const message = () => {
     const name = "Jesse";
     const age = 40;
