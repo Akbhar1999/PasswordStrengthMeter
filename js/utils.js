@@ -5,19 +5,14 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
  */
 const passwordStrengthMeter = Object.freeze({
-    containsUpperCase: (str) => /[A-Z]/.test(str),
-    containsLowerCase: (str) => /[a-z]/.test(str),
-    containsNumber: (str) => str.match(".*\\d.*"),
-    containsSpecialChars: (str) => /[!@#£$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(str),
-    is8Chars: (str) => str.length >= 8,
+    containsUpperCase: str => /[A-Z]/.test(str),
+    containsLowerCase: str => /[a-z]/.test(str),
+    containsNumber: str => str.match(".*\\d.*"),
+    containsSpecialChars: str => /[!@#£$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(str),
+    is8Chars: str => str.length >= 8,
 });
 
-const setStrengthBar = ({
-    currentValue = 0,
-    colour = "danger",
-    message = "weak",
-}) => {
-
+const setStrengthBar = ({currentValue = 0, colour = "danger",message = "weak"}) => {
     const progressBar = document.querySelector(".progress-bar");
     progressBar.className = `progress-bar bg-${colour}`;
     progressBar.style.width = `${currentValue}%`;
@@ -28,7 +23,7 @@ const setStrengthBar = ({
 
 //https://javascript.plainenglish.io/why-you-should-avoid-switch-statements-in-javascript-ce07d5b60da4
 
-const getProgressBar = (strength) => {
+const getProgressBar = strength => {
       const passwordMeterUI = {
         0: _ => setStrengthBar({ currentValue: 0, colour: "danger" }),
         1: _ => setStrengthBar({ currentValue: 20, colour: "danger", message: "this password is very weak!", }),

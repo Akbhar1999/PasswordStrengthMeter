@@ -5,6 +5,8 @@ const password = document.getElementById('password');
 
 // if form exists then set the progress bar to default value
 if (form){
+    form.addEventListener('submit', (e)=> e.preventDefault());
+
     utils.getProgressBar(0);
     decrease('contains_upper');
     decrease('contains_lower');
@@ -32,7 +34,6 @@ function decrease(selector){
     if (content) {
         content.innerHTML = '';
         content.innerHTML = utils.decreaseBar;
-        
     }
 
 }
@@ -48,7 +49,7 @@ function checkPassword(password) {
 
     utils.getProgressBar(strength);
 
-    passwordCriteria.containsUpperCase(password)? increase('contains_upper') : decrease('contains_upper')
+    passwordCriteria.containsUpperCase(password) ? increase('contains_upper') : decrease('contains_upper')
     passwordCriteria.containsLowerCase(password) ? increase('contains_lower') : decrease('contains_lower')
     passwordCriteria.containsNumber(password) ? increase('contains_number') : decrease('contains_number')
     passwordCriteria.containsSpecialChars(password) ? increase('containsSpecialChars') : decrease('containsSpecialChars')
