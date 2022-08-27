@@ -8,6 +8,7 @@ if (form){
     form.addEventListener('submit', (e)=> e.preventDefault());
 
     utils.getProgressBar(0);
+    
     decrease('contains_upper');
     decrease('contains_lower');
     decrease('contains_number');
@@ -57,8 +58,3 @@ function checkPassword(password) {
     
     
 }
-
-
-
-
-
